@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="0x2 Devs — Two experienced software developers from Adelaide, Australia, building high-quality apps you actually want to use." />
+  <title>0x2 Devs</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231C1917'/><text x='5' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23D97757'>%3E_</text></svg>" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Google Fonts: VT323 (retro hero) + Share Tech Mono (code accents) + Lora (headings) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Lora:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --bg:           #0D0C0B;
+      --surface:      #1C1917;
+      --surface-2:    #252220;
+      --card:         #2A2724;
+      --border:       #3D3830;
+      --text:         #F0EBE4;
+      --text-muted:   #9A9086;
+      --accent:       #D97757;
+      --accent-deep:  #BD5D3A;
+      --accent-soft:  rgba(217, 119, 87, 0.12);
+      --green:        #4ADE80;
+      --shadow:       rgba(0, 0, 0, 0.5);
+      --focus-ring:   rgba(217, 119, 87, 0.3);
+    }
+
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: Lora, Georgia, "Times New Roman", serif;
+      color: var(--text);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-deep); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem 6rem;
+      position: relative;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(217, 119, 87, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 119, 87, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      overflow: hidden;
+    }
+
+    /* Vignette to fade grid at edges */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, var(--bg) 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; z-index: 1; }
+
+    .hero-prefix {
+      font-family: "Share Tech Mono", monospace;
+      font-size: 1rem;
+      color: var(--text-muted);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-brand {
+      font-family: VT323, monospace;
+      font-size: clamp(5rem, 18vw, 13rem);
+      line-height: 0.9;
+      color: var(--text);
+      text-shadow:
+        0 0 20px rgba(217, 119, 87, 0.6),
+        0 0 60px rgba(217, 119, 87, 0.25),
+        0 0 120px rgba(217, 119, 87, 0.1);
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-cursor {
+      display: inline-block;
+      color: var(--accent);
+      animation: blink 1.1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .hero-tagline {
+      font-family: Lora, Georgia, serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 1.75rem auto 0;
+      font-style: italic;
+    }
+
+    .hero-tagline em {
+      color: var(--text);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      animation: bounce 2s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── Sections ── */
+    section { padding: 5rem 1.5rem; }
+
+    .section-label {
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    .section-heading {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      max-width: 560px;
+      font-size: 1.05rem;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── About section ── */
+    #about { background-color: var(--surface); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .about-copy p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-copy p strong {
+      color: var(--text);
+    }
+
+    .value-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .value-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .value-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      background: var(--accent-soft);
+      border: 1px solid rgba(217, 119, 87, 0.25);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .value-text strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.95rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .value-text span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Apps section ── */
+    #apps { background-color: var(--bg); }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+    }
+
+    .app-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .app-card:hover {
+      border-color: rgba(217, 119, 87, 0.4);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(217, 119, 87, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .app-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .app-icon--taskhub {
+      background: linear-gradient(135deg, rgba(217, 119, 87, 0.2), rgba(189, 93, 58, 0.15));
+      border: 1px solid rgba(217, 119, 87, 0.3);
+      color: var(--accent);
+    }
+
+    .app-icon--matchling {
+      background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(34, 197, 94, 0.1));
+      border: 1px solid rgba(74, 222, 128, 0.25);
+      color: var(--green);
+    }
+
+    .app-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .app-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .app-badge i { font-size: 0.65rem; }
+
+    .app-platforms {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .platform-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.3rem;
+      background: var(--surface-2);
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ── Contact section ── */
+    #contact { background-color: var(--surface); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-detail i {
+      color: var(--accent);
+      font-size: 1.1rem;
+      width: 1.25rem;
+      text-align: center;
+    }
+
+    .contact-detail a {
+      color: var(--text);
+      transition: color 0.15s;
+    }
+
+    .contact-detail a:hover { color: var(--accent); }
+
+    /* Form */
+    .contact-form .form-control,
+    .contact-form textarea {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.95rem;
+      width: 100%;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      font-family: inherit;
+    }
+
+    .contact-form .form-control::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .contact-form .form-control:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--focus-ring);
+      background-color: var(--card);
+      color: var(--text);
+    }
+
+    .contact-form textarea { resize: vertical; min-height: 130px; }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-form .field { margin-bottom: 1.1rem; }
+
+    .form-status {
+      font-size: 0.875rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.5rem;
+      margin-top: 0.75rem;
+      display: none;
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(200, 80, 70, 0.1);
+      border: 1px solid rgba(200, 80, 70, 0.3);
+      color: #f87171;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary-custom {
+      background-color: var(--accent);
+      border: 1px solid var(--accent);
+      color: #1C1410;
+      font-weight: 600;
+      padding: 0.65rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: var(--accent-deep);
+      border-color: var(--accent-deep);
+      box-shadow: 0 4px 12px rgba(217, 119, 87, 0.3);
+    }
+
+    .btn-primary-custom:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-outline-custom {
+      background-color: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 500;
+      padding: 0.65rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: border-color 0.15s, color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-outline-custom:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer .footer-brand {
+      font-family: "Share Tech Mono", monospace;
+      color: var(--text);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ── Section container ── */
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* ── Fade-in on scroll ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .fade-in:nth-child(1) { transition-delay: 0s; }
+    .fade-in:nth-child(2) { transition-delay: 0.1s; }
+    .fade-in:nth-child(3) { transition-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════ HERO ═══════════════ -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <p class="hero-prefix">// Adelaide, Australia</p>
+      <h1 class="hero-brand">0x2 DEVS<span class="hero-cursor">_</span></h1>
+      <p class="hero-tagline">
+        Two experienced software developers, building apps<br>
+        you <em>actually want to use</em>.
+      </p>
+      <div class="hero-cta">
+        <a href="#apps" class="btn-primary-custom">
+          <i class="bi bi-rocket-takeoff"></i> What we're building
+        </a>
+        <a href="#contact" class="btn-outline-custom">
+          <i class="bi bi-envelope"></i> Get in touch
+        </a>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#about" aria-label="Scroll down">
+      <i class="bi bi-chevron-down"></i>
+    </a>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ═══════════════ ABOUT ═══════════════ -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-copy fade-in">
+          <span class="section-label">// who we are</span>
+          <h2 class="section-heading">We actually care about what we build.</h2>
+          <p>
+            We're two experienced software developers based in <strong>Adelaide, South Australia</strong>.
+            Between us we've designed, built, and shipped software used by real teams and real
+            businesses — with years of experience turning complex problems into things that
+            are actually a pleasure to use.
+          </p>
+          <p>
+            We started 0x2 Devs because we got tired of software that exists just to exist.
+            Apps that are clunky, overcomplicated, or just plain unpleasant to use. We think
+            people deserve better — and we're doing something about it.
+          </p>
+          <p>
+            Our name is a bit of a nerdy in-joke — in the number system programmers use,
+            <strong>0x2</strong> is just the number two. Two developers, one goal: quality.
+          </p>
+        </div>
+
+        <div class="fade-in">
+          <span class="section-label">// what drives us</span>
+          <ul class="value-list" style="margin-top: 1.25rem;">
+            <li>
+              <div class="value-icon"><i class="bi bi-gem"></i></div>
+              <div class="value-text">
+                <strong>Quality over quantity</strong>
+                <span>A few great apps beats a pile of forgettable ones, every time.</span>
+              </div>
+            </li>
+            <li>
+              <div class="value-icon"><i class="bi bi-person-heart"></i></div>
+              <div class="value-text">
+                <strong>User-first thinking</strong>
+                <span>If it's frustrating to use, it doesn't matter how clever it is under the hood.</span>
+              </div>
+            </li>
+            <li>
+              <div class="value-icon"><i class="bi bi-shield-check"></i></div>
+              <div class="value-text">
+                <strong>Privacy &amp; trust</strong>
+                <span>We treat your data the way we'd want ours treated — with respect.</span>
+              </div>
+            </li>
+            <li>
+              <div class="value-icon"><i class="bi bi-lightning-charge"></i></div>
+              <div class="value-text">
+                <strong>Craft in the details</strong>
+                <span>Fast, reliable, and thoughtfully built from the ground up.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ═══════════════ WHAT'S COMING ═══════════════ -->
+  <section id="apps">
+    <div class="section-inner" style="text-align: center;">
+      <span class="section-label">// coming soon</span>
+      <h2 class="section-heading">What we're building</h2>
+      <p class="section-sub" style="margin: 0 auto;">
+        We have a lot in the works, but these two are the ones we're putting the finishing
+        touches on right now — both are heading to iOS and Android very soon.
+      </p>
+
+      <div class="apps-grid">
+
+        <!-- Task Hub -->
+        <div class="app-card fade-in">
+          <div class="app-icon app-icon--taskhub">
+            <i class="bi bi-check2-square"></i>
+          </div>
+          <h3>Orbit Tasks</h3>
+          <p>
+            A smarter way to manage everything on your plate. Orbit Tasks keeps your personal tasks,
+            team projects, and deadlines in one clean, focused place — without the bloat that makes
+            most productivity tools a chore to use.
+          </p>
+          <p>
+            Designed for people who actually want to get things done, not spend half their day
+            managing their task manager.
+          </p>
+          <div class="app-platforms">
+            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+            <span class="platform-tag"><i class="bi bi-globe"></i> Web</span>
+          </div>
+          <div style="margin-top: 1rem;">
+            <span class="app-badge"><i class="bi bi-stars"></i> Coming soon</span>
+          </div>
+        </div>
+
+        <!-- Matchling -->
+        <div class="app-card fade-in">
+          <div class="app-icon app-icon--matchling">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h3>Matchling</h3>
+          <p>
+            Choosing a baby name is one of the biggest decisions you'll make together — and one
+            of the hardest to agree on. Matchling lets couples swipe through baby names
+            independently and surfaces the ones you both love.
+          </p>
+          <p>
+            No arguments, no spreadsheets. Just two people finding their perfect name, one swipe
+            at a time.
+          </p>
+          <div class="app-platforms">
+            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+          </div>
+          <div style="margin-top: 1rem;">
+            <span class="app-badge"><i class="bi bi-stars"></i> Coming soon</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ═══════════════ CONTACT ═══════════════ -->
+  <section id="contact">
+    <div class="section-inner">
+      <div style="text-align: center; margin-bottom: 0;">
+        <span class="section-label">// say hello</span>
+        <h2 class="section-heading">Get in touch</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info fade-in">
+          <p>
+            Have a question, need help with one of our apps, or just want to say g'day? We'd love
+            to hear from you. Use the form or email us directly — we aim to reply within
+            1–2 business days.
+          </p>
+
+          <div class="contact-detail">
+            <i class="bi bi-envelope-fill"></i>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.1rem;">Email us directly</div>
+              <a href="mailto:info@0x2-devs.com">info@0x2-devs.com</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.1rem;">Based in</div>
+              <span style="color: var(--text);">Adelaide, South Australia</span>
+            </div>
+          </div>
+
+          <div class="contact-detail" style="margin-top: 0.5rem;">
+            <i class="bi bi-clock-fill"></i>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.1rem;">Response time</div>
+              <span style="color: var(--text);">We aim to reply within 1–2 business days</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in" id="form-wrapper">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="from_name">Name</label>
+              <input type="text" id="from_name" name="from_name" class="form-control" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="reply_to">Email address</label>
+              <input type="email" id="reply_to" name="reply_to" class="form-control" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary-custom" id="submit-btn">
+              <i class="bi bi-send"></i> Send message
+            </button>
+            <div class="form-status" id="form-error"></div>
+          </form>
+
+          <div id="form-success" style="display:none; text-align:center; padding: 2.5rem 1.5rem;">
+            <div style="font-size: 3rem; color: var(--green); margin-bottom: 1rem;">
+              <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <h3 style="margin-bottom: 0.5rem;">Message sent!</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+              Thanks for reaching out. We'll get back to you within 1–2 business days.
+            </p>
+            <button class="btn-outline-custom" onclick="resetForm()">
+              <i class="bi bi-arrow-left"></i> Send another message
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer>
+    <div class="footer-brand">0x2 Devs</div>
+    <div>Adelaide, South Australia &mdash; Building apps worth using.</div>
+    <div style="margin-top: 0.4rem;">&copy; <span id="footer-year"></span> 0x2 Devs. All rights reserved.</div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmB0DoQFvVhzh8GOmKOkTB1vCue0" crossorigin="anonymous"></script>
+
+  <script>
+    // ── Formspree contact form ───────────────────────────────────────────────
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const btn   = document.getElementById('submit-btn');
+      const error = document.getElementById('form-error');
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending…';
+      error.style.display = 'none';
+
+      const data = {
+        name:    document.getElementById('from_name').value.trim(),
+        email:   document.getElementById('reply_to').value.trim(),
+        message: document.getElementById('message').value.trim(),
+      };
+
+      fetch('https://formspree.io/f/xgonwgoq', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(function (res) {
+          if (res.ok) {
+            document.getElementById('contact-form').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+          } else {
+            return res.json().then(function (body) { throw body; });
+          }
+        })
+        .catch(function (err) {
+          console.error('Formspree error:', err);
+          error.textContent = 'Something went wrong. Please try emailing us directly at info@0x2-devs.com';
+          error.style.display = 'block';
+          btn.disabled = false;
+          btn.innerHTML = '<i class="bi bi-send"></i> Send message';
+        });
+    });
+
+    function resetForm() {
+      document.getElementById('contact-form').reset();
+      document.getElementById('contact-form').style.display = 'block';
+      document.getElementById('form-success').style.display = 'none';
+    }
+
+    // ── Footer year ──────────────────────────────────────────────────────────
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ── Scroll fade-in ───────────────────────────────────────────────────────
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(function (el) {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
