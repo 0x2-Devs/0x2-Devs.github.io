@@ -739,7 +739,7 @@
         </div>
 
         <div class="fade-in" id="form-wrapper">
-          <form class="contact-form" id="contact-form" novalidate>
+          <form class="contact-form" id="contact-form">
             <div class="field">
               <label for="from_name">Name</label>
               <input type="text" id="from_name" name="from_name" class="form-control" placeholder="Your name" required />
@@ -781,6 +781,7 @@
     <div class="footer-brand">0x2 Devs</div>
     <div>Adelaide, South Australia &mdash; Building apps worth using.</div>
     <div style="margin-top: 0.4rem;">&copy; <span id="footer-year"></span> 0x2 Devs. All rights reserved.</div>
+    <div style="margin-top: 0.4rem;"><a href="/privacy.html" style="color: var(--text-muted); font-size: 0.75rem;">Privacy Policy</a></div>
   </footer>
 
   <!-- Bootstrap JS -->
@@ -804,7 +805,7 @@
         message: document.getElementById('message').value.trim(),
       };
 
-      fetch('https://formspree.io/f/xgonwgoq', {
+      fetch('https://formspree.io/f/mqeyqrpd', {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -827,6 +828,9 @@
     });
 
     function resetForm() {
+      var btn = document.getElementById('submit-btn');
+      btn.disabled = false;
+      btn.innerHTML = '<i class="bi bi-send"></i> Send message';
       document.getElementById('contact-form').reset();
       document.getElementById('contact-form').style.display = 'block';
       document.getElementById('form-success').style.display = 'none';

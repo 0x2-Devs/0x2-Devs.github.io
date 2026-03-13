@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="0x2 Devs Privacy Policy — how we collect and use your data." />
+  <title>Privacy Policy — 0x2 Devs</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231C1917'/><text x='5' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%23D97757'>%3E_</text></svg>" />
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Lora:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:           #0D0C0B;
+      --surface:      #1C1917;
+      --surface-2:    #252220;
+      --card:         #2A2724;
+      --border:       #3D3830;
+      --text:         #F0EBE4;
+      --text-muted:   #9A9086;
+      --accent:       #D97757;
+      --accent-deep:  #BD5D3A;
+      --green:        #4ADE80;
+      --focus-ring:   rgba(217, 119, 87, 0.3);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    h1, h2, h3 { font-family: Lora, Georgia, "Times New Roman", serif; color: var(--text); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-deep); }
+
+    /* ── Nav ── */
+    .site-nav {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .nav-brand {
+      font-family: "Share Tech Mono", monospace;
+      font-size: 1.1rem;
+      color: var(--text);
+      font-weight: bold;
+    }
+    .nav-back {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* ── Content ── */
+    .policy-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    .policy-label {
+      font-family: "Share Tech Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .policy-title {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      line-height: 1.15;
+    }
+
+    .policy-meta {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .policy-intro {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      margin-top: 1.25rem;
+      margin-bottom: 2.5rem;
+      border-left: 2px solid var(--border);
+      padding-left: 1rem;
+    }
+
+    .policy-section { margin-bottom: 2rem; }
+
+    .policy-section h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .policy-section p,
+    .policy-section ul {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .policy-section ul { padding-left: 1.4rem; }
+    .policy-section ul li { margin-bottom: 0.3rem; }
+    .policy-section strong { color: var(--text); }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ── Deletion card ── */
+    .deletion-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem 1.75rem;
+      margin-top: 1rem;
+    }
+
+    .deletion-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .deletion-card > p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .deletion-form .form-control {
+      background-color: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 0.5rem;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.95rem;
+      width: 100%;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      font-family: inherit;
+    }
+
+    .deletion-form .form-control::placeholder { color: var(--text-muted); }
+
+    .deletion-form .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--focus-ring);
+      background-color: var(--surface-2);
+      color: var(--text);
+    }
+
+    .deletion-form label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .deletion-form .field { margin-bottom: 1rem; }
+
+    .form-status {
+      font-size: 0.875rem;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.5rem;
+      margin-top: 0.75rem;
+      display: none;
+    }
+
+    .form-status.error {
+      display: block;
+      background: rgba(200, 80, 70, 0.1);
+      border: 1px solid rgba(200, 80, 70, 0.3);
+      color: #f87171;
+    }
+
+    .btn-primary-custom {
+      background-color: var(--accent);
+      border: 1px solid var(--accent);
+      color: #1C1410;
+      font-weight: 600;
+      padding: 0.65rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: var(--accent-deep);
+      border-color: var(--accent-deep);
+      box-shadow: 0 4px 12px rgba(217, 119, 87, 0.3);
+    }
+
+    .btn-primary-custom:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .btn-outline-custom {
+      background-color: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 500;
+      padding: 0.65rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: border-color 0.15s, color 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: inherit;
+    }
+
+    .btn-outline-custom:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .footer-brand {
+      font-family: "Share Tech Mono", monospace;
+      color: var(--text);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="/" class="nav-brand">0x2 Devs</a>
+    <span style="color: var(--border);">/</span>
+    <a href="/" class="nav-back"><i class="bi bi-arrow-left"></i> Back</a>
+  </nav>
+
+  <main class="policy-wrap">
+
+    <span class="policy-label">// legal</span>
+    <h1 class="policy-title">Privacy Policy</h1>
+    <p class="policy-meta">Last updated: March 2026 &mdash; 0x2 Devs, Adelaide, South Australia</p>
+    <p class="policy-intro">
+      We are 0x2 Devs, two independent software developers based in Adelaide, South Australia.
+      This policy covers all applications we publish, including <strong style="color: var(--text);">Orbit Tasks</strong> and <strong style="color: var(--text);">Matchling</strong>.
+      We collect only what we need, use it only as described below, and never sell it.
+    </p>
+
+    <div class="policy-section">
+      <h2>1. What we collect</h2>
+      <p>When you create an account or use our apps, we may collect:</p>
+      <ul>
+        <li><strong>Name</strong> — your display name as entered in the app.</li>
+        <li><strong>Email address</strong> — used to identify your account and to communicate with you.</li>
+        <li><strong>Phone number</strong> — only if you choose to provide it (e.g. for notifications or account recovery).</li>
+        <li><strong>App content</strong> — data you create within the app (e.g. tasks, preferences, activity) in order to provide the service.</li>
+        <li><strong>Device token</strong> — for delivering push notifications you have opted into. No other device identifiers are stored.</li>
+        <li><strong>Subscription status</strong> — purchase and subscription records managed through Apple App Store or Google Play. We do not store payment card details.</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>2. How we use your information</h2>
+      <ul>
+        <li>To create and manage your account.</li>
+        <li>To provide and maintain the features of our apps.</li>
+        <li>To send push notifications and reminders you have opted into.</li>
+        <li>To respond to your support requests.</li>
+        <li>To send you updates and promotional material about our own apps. You may opt out at any time by contacting us.</li>
+        <li>To detect and prevent fraud, abuse, or security issues.</li>
+        <li>To comply with our legal obligations.</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>3. Sharing your information</h2>
+      <p>We do not sell, rent, or trade your personal information to any third party, ever.</p>
+      <p>We may share data only in the following limited circumstances:</p>
+      <ul>
+        <li><strong>Service providers</strong> — trusted infrastructure partners (e.g. Microsoft Azure for hosting, Apple and Google for push notifications and payments) who process data solely on our behalf under strict terms.</li>
+        <li><strong>Legal requirements</strong> — if required by law or in response to valid legal process.</li>
+        <li><strong>Business transfers</strong> — in the event of a merger or acquisition, your data would transfer to the successor subject to the same privacy commitments.</li>
+      </ul>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>4. Data retention</h2>
+      <p>
+        We retain your data for as long as your account is active. When you delete your account,
+        your personal data is removed from our systems. Billing and subscription records may be
+        retained separately for accounting and legal compliance purposes.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>5. Security</h2>
+      <p>
+        We protect your data using encrypted connections (HTTPS/TLS), hashed passwords, and
+        access controls on our infrastructure. No system is completely immune to risk, but we
+        take reasonable and industry-standard steps to keep your information safe.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>6. Children's privacy</h2>
+      <p>
+        Our apps are intended for users aged 13 and over. We do not knowingly collect personal
+        information from children under 13. If you believe we have done so inadvertently, please
+        contact us and we will delete it promptly.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>7. Your rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you.</li>
+        <li>Request correction of inaccurate data.</li>
+        <li>Request deletion of your account and data (see section 8).</li>
+        <li>Opt out of marketing communications at any time.</li>
+      </ul>
+      <p>To exercise any of these rights, email us at <a href="mailto:info@0x2-devs.com">info@0x2-devs.com</a>.</p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>8. Account &amp; data deletion</h2>
+      <p>
+        You can delete your account at any time from within the app. You can also submit a
+        request using the form below — include your name, the email on your account, and
+        which app you want removed from (or leave it blank to remove from all of our apps).
+        We will confirm by email once processed.
+      </p>
+
+      <div class="deletion-card">
+        <h3><i class="bi bi-trash3" style="color: var(--accent); margin-right: 0.4rem;"></i>Request account deletion</h3>
+        <p>We'll process your request and confirm by email within 30 days.</p>
+
+        <div id="deletion-form-wrapper">
+          <form class="deletion-form" id="deletion-form">
+            <div class="field">
+              <label for="del_name">Name</label>
+              <input type="text" id="del_name" name="name" class="form-control" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="del_email">Email address</label>
+              <input type="email" id="del_email" name="email" class="form-control" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="del_app">App <span style="font-weight: 400;">(optional)</span></label>
+              <input type="text" id="del_app" name="app" class="form-control" placeholder="e.g. Orbit Tasks or Matchling — leave blank for all" list="del_app_list" autocomplete="off" />
+              <datalist id="del_app_list">
+                <option value="Orbit Tasks" />
+                <option value="Matchling" />
+              </datalist>
+            </div>
+            <button type="submit" class="btn-primary-custom" id="deletion-submit-btn">
+              <i class="bi bi-trash3"></i> Submit request
+            </button>
+            <div class="form-status" id="deletion-form-error"></div>
+          </form>
+
+          <div id="deletion-form-success" style="display:none; padding: 1.5rem 0 0.5rem; text-align: center;">
+            <div style="font-size: 2.5rem; color: var(--green); margin-bottom: 0.75rem;">
+              <i class="bi bi-check-circle-fill"></i>
+            </div>
+            <h3 style="margin-bottom: 0.4rem;">Request received</h3>
+            <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.25rem;">
+              We'll process your deletion request and confirm by email within 30 days.
+            </p>
+            <button class="btn-outline-custom" onclick="resetDeletionForm()">
+              <i class="bi bi-arrow-left"></i> Submit another request
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>9. Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time. The "last updated" date at the top of this
+        page will reflect any changes. Continued use of our apps after an update constitutes
+        acceptance of the revised policy.
+      </p>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="policy-section">
+      <h2>10. Contact</h2>
+      <p>
+        Questions about this policy or how we handle your data? Reach us at
+        <a href="mailto:info@0x2-devs.com">info@0x2-devs.com</a> or via the
+        <a href="/#contact">contact form</a> on our website.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-brand">0x2 Devs</div>
+    <div>Adelaide, South Australia &mdash; Building apps worth using.</div>
+    <div style="margin-top: 0.4rem;">&copy; <span id="footer-year"></span> 0x2 Devs. All rights reserved.</div>
+    <div style="margin-top: 0.4rem;"><a href="/privacy.html" style="color: var(--accent); font-size: 0.75rem;">Privacy Policy</a></div>
+  </footer>
+
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    document.getElementById('deletion-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var btn   = document.getElementById('deletion-submit-btn');
+      var error = document.getElementById('deletion-form-error');
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending…';
+      error.style.display = 'none';
+
+      var data = {
+        name:  document.getElementById('del_name').value.trim(),
+        email: document.getElementById('del_email').value.trim(),
+        app:   document.getElementById('del_app').value.trim() || 'All apps',
+      };
+
+      fetch('https://formspree.io/f/myknwreb', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(function (res) {
+          if (res.ok) {
+            document.getElementById('deletion-form').style.display = 'none';
+            document.getElementById('deletion-form-success').style.display = 'block';
+          } else {
+            return res.json().then(function (body) { throw body; });
+          }
+        })
+        .catch(function (err) {
+          console.error('Formspree error:', err);
+          error.textContent = 'Something went wrong. Please try emailing us directly at info@0x2-devs.com';
+          error.style.display = 'block';
+          btn.disabled = false;
+          btn.innerHTML = '<i class="bi bi-trash3"></i> Submit request';
+        });
+    });
+
+    function resetDeletionForm() {
+      var btn = document.getElementById('deletion-submit-btn');
+      btn.disabled = false;
+      btn.innerHTML = '<i class="bi bi-trash3"></i> Submit request';
+      document.getElementById('deletion-form').reset();
+      document.getElementById('deletion-form').style.display = 'block';
+      document.getElementById('deletion-form-success').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
