@@ -532,6 +532,61 @@
       margin: 0 auto;
     }
 
+    /* ── Light theme ── */
+    [data-theme="light"] {
+      --bg:           #FAF8F5;
+      --surface:      #F0ECE6;
+      --surface-2:    #E8E2D9;
+      --card:         #FFFFFF;
+      --border:       #DDD7CE;
+      --text:         #1C1412;
+      --text-muted:   #6B5E52;
+      --accent:       #C96A44;
+      --accent-deep:  #A8522E;
+      --accent-soft:  rgba(201, 106, 68, 0.1);
+      --green:        #16A34A;
+      --shadow:       rgba(0, 0, 0, 0.08);
+      --focus-ring:   rgba(201, 106, 68, 0.25);
+    }
+
+    [data-theme="light"] .hero {
+      background-image:
+        linear-gradient(rgba(201, 106, 68, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 106, 68, 0.06) 1px, transparent 1px);
+    }
+
+    [data-theme="light"] .hero-brand {
+      text-shadow:
+        0 0 20px rgba(201, 106, 68, 0.3),
+        0 0 60px rgba(201, 106, 68, 0.1);
+    }
+
+    /* ── Theme toggle button ── */
+    .theme-toggle {
+      position: fixed;
+      top: 1.1rem;
+      right: 1.25rem;
+      z-index: 1000;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background-color: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
     /* ── Fade-in on scroll ── */
     .fade-in {
       opacity: 0;
@@ -551,6 +606,10 @@
   </style>
 </head>
 <body>
+
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+    <i class="bi bi-sun" id="theme-icon"></i>
+  </button>
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero" id="top">
@@ -896,6 +955,36 @@
       document.getElementById('contact-form').style.display = 'block';
       document.getElementById('form-success').style.display = 'none';
     }
+
+    // ── Theme toggle ────────────────────────────────────────────────────────
+    (function () {
+      var html = document.documentElement;
+      var btn  = document.getElementById('theme-toggle');
+      var icon = document.getElementById('theme-icon');
+
+      function applyTheme(theme) {
+        if (theme === 'light') {
+          html.setAttribute('data-theme', 'light');
+          icon.className = 'bi bi-moon';
+          btn.setAttribute('title', 'Switch to dark theme');
+        } else {
+          html.removeAttribute('data-theme');
+          icon.className = 'bi bi-sun';
+          btn.setAttribute('title', 'Switch to light theme');
+        }
+      }
+
+      var saved = localStorage.getItem('theme');
+      var preferred = (!saved && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : saved;
+      applyTheme(preferred || 'dark');
+
+      btn.addEventListener('click', function () {
+        var current = html.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        var next = current === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', next);
+        applyTheme(next);
+      });
+    }());
 
     // ── Footer year ──────────────────────────────────────────────────────────
     document.getElementById('footer-year').textContent = new Date().getFullYear();
