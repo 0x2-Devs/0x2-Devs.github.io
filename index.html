@@ -261,9 +261,9 @@
 
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      max-width: 900px;
+      max-width: 1080px;
       margin: 3rem auto 0;
     }
 
@@ -282,38 +282,19 @@
     }
 
     .app-icon {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
       margin-bottom: 1.25rem;
+      overflow: hidden;
     }
 
-    .app-icon--taskhub {
-      background: linear-gradient(135deg, rgba(217, 119, 87, 0.2), rgba(189, 93, 58, 0.15));
-      border: 1px solid rgba(217, 119, 87, 0.3);
-      color: var(--accent);
-    }
-
-    .app-icon--matchling {
-      background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(34, 197, 94, 0.1));
-      border: 1px solid rgba(74, 222, 128, 0.25);
-      color: var(--green);
-    }
-
-    .app-icon--orbithome {
-      background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(59, 130, 246, 0.1));
-      border: 1px solid rgba(96, 165, 250, 0.25);
-      color: #60A5FA;
-    }
-
-    .app-icon--hatchling {
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.1));
-      border: 1px solid rgba(251, 191, 36, 0.25);
-      color: #FBBF24;
+    .app-icon img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .app-card h3 {
@@ -715,8 +696,8 @@
 
         <!-- Task Hub -->
         <div class="app-card fade-in">
-          <div class="app-icon app-icon--taskhub">
-            <i class="bi bi-check2-square"></i>
+          <div class="app-icon">
+            <img src="assets/apps/orbit.png" alt="Orbit app icon" loading="lazy" />
           </div>
           <h3>Orbit Tasks</h3>
           <p>
@@ -731,7 +712,6 @@
           <div class="app-platforms">
             <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
             <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
-            <span class="platform-tag"><i class="bi bi-globe"></i> Web</span>
           </div>
           <div style="margin-top: 1rem;">
             <span class="app-badge"><i class="bi bi-stars"></i> In Beta Testing</span>
@@ -740,8 +720,8 @@
 
         <!-- Matchling -->
         <div class="app-card fade-in">
-          <div class="app-icon app-icon--matchling">
-            <i class="bi bi-stars"></i>
+          <div class="app-icon">
+            <img src="assets/apps/matchling.png" alt="Matchling app icon" loading="lazy" />
           </div>
           <h3>Matchling</h3>
           <p>
@@ -762,21 +742,21 @@
           </div>
         </div>
 
-        <!-- Orbit Chores -->
+        <!-- Summit -->
         <div class="app-card fade-in">
-          <div class="app-icon app-icon--orbithome">
-            <i class="bi bi-house-heart"></i>
+          <div class="app-icon">
+            <img src="assets/apps/summit.png" alt="Summit app icon" loading="lazy" />
           </div>
-          <h3>Orbit Chores</h3>
+          <h3>Summit</h3>
           <p>
-            Whether you're a couple trying to split the load fairly, or a family trying to
-            get the kids involved — Orbit Chores makes household chores visible, shared, and
-            actually rewarding.
+            Summit helps households keep chores, rewards, challenges, and everyday progress in
+            one shared place. It is built for families and couples who want the work of home to
+            feel visible, fair, and easier to act on.
           </p>
           <p>
-            Kids earn rewards for pitching in. Partners see exactly who's done what.
-            Everyone gets a little recognition for the effort. Not a to-do list, not a
-            work tracker — a home tool built around the rhythm of home life.
+            Kids can see what needs doing and earn rewards for pitching in. Parents and partners
+            get a clearer picture of what has been done, what is overdue, and where a little
+            recognition can keep the household moving.
           </p>
           <div class="app-platforms">
             <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
@@ -789,8 +769,8 @@
 
         <!-- Hatchling -->
         <div class="app-card fade-in">
-          <div class="app-icon app-icon--hatchling">
-            <i class="bi bi-moon-stars"></i>
+          <div class="app-icon">
+            <img src="assets/apps/hatchling.png" alt="Hatchling app icon" loading="lazy" />
           </div>
           <h3>Hatchling</h3>
           <p>
@@ -801,6 +781,30 @@
           <p>
             Shared with your co-carer in real time, so you're always on the same page —
             even when you're not in the same room.
+          </p>
+          <div class="app-platforms">
+            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+          </div>
+          <div style="margin-top: 1rem;">
+            <span class="app-badge"><i class="bi bi-stars"></i> Coming soon</span>
+          </div>
+        </div>
+
+        <!-- Snapling -->
+        <div class="app-card fade-in">
+          <div class="app-icon">
+            <img src="assets/apps/snapling.png" alt="Snapling app icon" loading="lazy" />
+          </div>
+          <h3>Snapling</h3>
+          <p>
+            Camera rolls fill up fast. Snapling gives you a calm, focused way to work through
+            recent photos one at a time, quickly choosing what to keep, what to delete, and what
+            to review later.
+          </p>
+          <p>
+            It keeps deletions safe with a pending queue, helps you avoid overwhelming grid views,
+            and turns photo clean-up into a small task you can actually finish.
           </p>
           <div class="app-platforms">
             <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
