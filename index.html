@@ -281,6 +281,14 @@
       transform: translateY(-2px);
     }
 
+    .app-card.is-unreleased {
+      border-color: rgba(217, 119, 87, 0.22);
+    }
+
+    .app-card.is-unreleased:hover {
+      border-color: rgba(217, 119, 87, 0.32);
+    }
+
     .app-icon {
       width: 4rem;
       height: 4rem;
@@ -300,6 +308,23 @@
     .app-card h3 {
       font-size: 1.3rem;
       margin-bottom: 0.5rem;
+    }
+
+    .app-details {
+      transition: filter 0.2s ease, opacity 0.2s ease;
+    }
+
+    .app-card.is-unreleased .app-details {
+      filter: blur(7px);
+      opacity: 0.42;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .app-details {
+        transition: none;
+      }
     }
 
     .app-card p {
@@ -682,136 +707,146 @@
 
   <hr class="divider" />
 
-  <!-- ═══════════════ WHAT'S COMING ═══════════════ -->
+  <!-- ═══════════════ APPS ═══════════════ -->
   <section id="apps">
     <div class="section-inner" style="text-align: center;">
-      <span class="section-label">// coming soon</span>
-      <h2 class="section-heading">What we're building</h2>
+      <span class="section-label">// apps</span>
+      <h2 class="section-heading">What we're releasing</h2>
       <p class="section-sub" style="margin: 0 auto;">
-        We have a lot in the works — here's what we're building right now.
-        All of our apps are heading to iOS and Android very soon.
+        Our apps are rolling out one at a time. Released apps show their full details;
+        upcoming apps stay partly under wraps until launch day.
       </p>
 
       <div class="apps-grid">
 
-        <!-- Task Hub -->
-        <div class="app-card fade-in">
-          <div class="app-icon">
-            <img src="assets/apps/orbit.png" alt="Orbit app icon" loading="lazy" />
-          </div>
-          <h3>Orbit Tasks</h3>
-          <p>
-            A smarter way to manage everything on your plate. Orbit Tasks keeps your personal tasks,
-            team projects, and deadlines in one clean, focused place — without the bloat that makes
-            most productivity tools a chore to use.
-          </p>
-          <p>
-            Designed for people who actually want to get things done, not spend half their day
-            managing their task manager.
-          </p>
-          <div class="app-platforms">
-            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
-            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
-          </div>
-          <div style="margin-top: 1rem;">
-            <span class="app-badge"><i class="bi bi-stars"></i> Releasing Soon...</span>
-          </div>
-        </div>
-
         <!-- Matchling -->
-        <div class="app-card fade-in">
+        <div class="app-card fade-in" data-release-date="2026-05-30">
           <div class="app-icon">
             <img src="assets/apps/matchling.png" alt="Matchling app icon" loading="lazy" />
           </div>
           <h3>Matchling</h3>
-          <p>
-            Choosing a baby name is one of the biggest decisions you'll make together — and one
-            of the hardest to agree on. Matchling lets couples swipe through baby names
-            independently and surfaces the ones you both love.
-          </p>
-          <p>
-            No arguments, no spreadsheets. Just two people finding their perfect name, one swipe
-            at a time.
-          </p>
-          <div class="app-platforms">
-            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
-            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
-          </div>
-          <div style="margin-top: 1rem;">
-            <span class="app-badge"><i class="bi bi-stars"></i> Releasing Soon...</span>
-          </div>
-        </div>
-
-        <!-- Summit -->
-        <div class="app-card fade-in">
-          <div class="app-icon">
-            <img src="assets/apps/summit.png" alt="Summit app icon" loading="lazy" />
-          </div>
-          <h3>Summit</h3>
-          <p>
-            Summit helps households keep chores, rewards, challenges, and everyday progress in
-            one shared place. It is built for families and couples who want the work of home to
-            feel visible, fair, and easier to act on.
-          </p>
-          <p>
-            Kids can see what needs doing and earn rewards for pitching in. Parents and partners
-            get a clearer picture of what has been done, what is overdue, and where a little
-            recognition can keep the household moving.
-          </p>
-          <div class="app-platforms">
-            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
-            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
-          </div>
-          <div style="margin-top: 1rem;">
-            <span class="app-badge"><i class="bi bi-stars"></i> In Beta Testing</span>
+          <div class="app-details">
+            <p>
+              Choosing a baby name is one of the biggest decisions you'll make together — and one
+              of the hardest to agree on. Matchling lets couples swipe through baby names
+              independently and surfaces the ones you both love.
+            </p>
+            <p>
+              No arguments, no spreadsheets. Just two people finding their perfect name, one swipe
+              at a time.
+            </p>
+            <div class="app-platforms">
+              <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+              <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <span class="app-badge"><i class="bi bi-stars"></i> Available now</span>
+            </div>
           </div>
         </div>
 
-        <!-- Hatchling -->
-        <div class="app-card fade-in">
+        <!-- Task Hub -->
+        <div class="app-card fade-in" data-release-date="2026-06-02">
           <div class="app-icon">
-            <img src="assets/apps/hatchling.png" alt="Hatchling app icon" loading="lazy" />
+            <img src="assets/apps/orbit.png" alt="Orbit app icon" loading="lazy" />
           </div>
-          <h3>Hatchling</h3>
-          <p>
-            The newborn days are a blur — and trying to remember the last feed, sleep,
-            or nappy change while running on no sleep is hard. Hatchling makes it fast to
-            log what just happened and easy to spot your baby's daily rhythms.
-          </p>
-          <p>
-            Shared with your co-carer in real time, so you're always on the same page —
-            even when you're not in the same room.
-          </p>
-          <div class="app-platforms">
-            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
-            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
-          </div>
-          <div style="margin-top: 1rem;">
-            <span class="app-badge"><i class="bi bi-stars"></i> Releasing Soon...</span>
+          <h3>Orbit Tasks</h3>
+          <div class="app-details">
+            <p>
+              A smarter way to manage everything on your plate. Orbit Tasks keeps your personal tasks,
+              team projects, and deadlines in one clean, focused place — without the bloat that makes
+              most productivity tools a chore to use.
+            </p>
+            <p>
+              Designed for people who actually want to get things done, not spend half their day
+              managing their task manager.
+            </p>
+            <div class="app-platforms">
+              <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+              <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <span class="app-badge"><i class="bi bi-stars"></i> Available June 2</span>
+            </div>
           </div>
         </div>
 
         <!-- Snapling -->
-        <div class="app-card fade-in">
+        <div class="app-card fade-in" data-release-date="2026-06-03">
           <div class="app-icon">
             <img src="assets/apps/snapling.png" alt="Snapling app icon" loading="lazy" />
           </div>
           <h3>Snapling</h3>
-          <p>
-            Camera rolls fill up fast. Snapling gives you a calm, focused way to work through
-            recent photos one at a time, quickly choosing what to keep, what to delete, and what
-            to review later.
-          </p>
-          <p>
-            It keeps deletions safe with a pending queue, helps you avoid overwhelming grid views,
-            and turns photo clean-up into a small task you can actually finish.
-          </p>
-          <div class="app-platforms">
-            <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
-            <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+          <div class="app-details">
+            <p>
+              Camera rolls fill up fast. Snapling gives you a calm, focused way to work through
+              recent photos one at a time, quickly choosing what to keep, what to delete, and what
+              to review later.
+            </p>
+            <p>
+              It keeps deletions safe with a pending queue, helps you avoid overwhelming grid views,
+              and turns photo clean-up into a small task you can actually finish.
+            </p>
+            <div class="app-platforms">
+              <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+              <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <span class="app-badge"><i class="bi bi-stars"></i> Available June 3</span>
+            </div>
           </div>
-          <div style="margin-top: 1rem;">
-            <span class="app-badge"><i class="bi bi-stars"></i> Releasing Soon...</span>
+        </div>
+
+        <!-- Hatchling -->
+        <div class="app-card fade-in" data-release-date="2026-06-04">
+          <div class="app-icon">
+            <img src="assets/apps/hatchling.png" alt="Hatchling app icon" loading="lazy" />
+          </div>
+          <h3>Hatchling</h3>
+          <div class="app-details">
+            <p>
+              The newborn days are a blur — and trying to remember the last feed, sleep,
+              or nappy change while running on no sleep is hard. Hatchling makes it fast to
+              log what just happened and easy to spot your baby's daily rhythms.
+            </p>
+            <p>
+              Shared with your co-carer in real time, so you're always on the same page —
+              even when you're not in the same room.
+            </p>
+            <div class="app-platforms">
+              <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+              <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <span class="app-badge"><i class="bi bi-stars"></i> Available June 4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summit -->
+        <div class="app-card fade-in" data-release-date="2026-06-05">
+          <div class="app-icon">
+            <img src="assets/apps/summit.png" alt="Summit app icon" loading="lazy" />
+          </div>
+          <h3>Summit</h3>
+          <div class="app-details">
+            <p>
+              Summit helps households keep chores, rewards, challenges, and everyday progress in
+              one shared place. It is built for families and couples who want the work of home to
+              feel visible, fair, and easier to act on.
+            </p>
+            <p>
+              Kids can see what needs doing and earn rewards for pitching in. Parents and partners
+              get a clearer picture of what has been done, what is overdue, and where a little
+              recognition can keep the household moving.
+            </p>
+            <div class="app-platforms">
+              <span class="platform-tag"><i class="bi bi-apple"></i> iOS</span>
+              <span class="platform-tag"><i class="bi bi-android2"></i> Android</span>
+            </div>
+            <div style="margin-top: 1rem;">
+              <span class="app-badge"><i class="bi bi-stars"></i> Available June 5</span>
+            </div>
           </div>
         </div>
 
@@ -988,6 +1023,25 @@
         var next = current === 'light' ? 'dark' : 'light';
         localStorage.setItem('theme', next);
         applyTheme(next);
+      });
+    }());
+
+    // ── App release gating ──────────────────────────────────────────────────
+    (function () {
+      function dateOnly(date) {
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      }
+
+      function parseLocalDate(value) {
+        var parts = value.split('-').map(function (part) { return Number(part); });
+        return new Date(parts[0], parts[1] - 1, parts[2]);
+      }
+
+      var today = dateOnly(new Date());
+
+      document.querySelectorAll('[data-release-date]').forEach(function (card) {
+        var releaseDate = parseLocalDate(card.getAttribute('data-release-date'));
+        card.classList.toggle('is-unreleased', today < releaseDate);
       });
     }());
 
