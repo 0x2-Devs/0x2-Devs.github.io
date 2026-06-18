@@ -437,6 +437,19 @@ textarea:focus,
   font-weight: 650;
 }
 
+.chip-link {
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.16s ease, color 0.16s ease, background 0.16s ease;
+}
+
+.chip-link:hover,
+.chip-link:focus-visible {
+  border-color: var(--app-accent, var(--accent));
+  background: color-mix(in srgb, var(--app-accent, var(--accent)) 14%, var(--surface));
+  color: var(--text);
+}
+
 .business-panel {
   --app-accent: #d56f4c;
   display: grid;
