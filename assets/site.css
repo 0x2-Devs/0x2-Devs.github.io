@@ -406,6 +406,24 @@ textarea:focus,
   font-weight: 750;
 }
 
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 30px;
+  width: max-content;
+  max-width: 100%;
+  border: 1px solid color-mix(in srgb, var(--badge-accent, var(--app-accent, var(--accent))) 54%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--badge-accent, var(--app-accent, var(--accent))) 14%, var(--surface));
+  color: var(--badge-accent, var(--app-accent, var(--accent)));
+  padding: 0.3rem 0.68rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .app-title {
   margin-bottom: 0.25rem;
   font-size: 1.45rem;
@@ -451,7 +469,8 @@ textarea:focus,
 }
 
 .business-panel {
-  --app-accent: #d56f4c;
+  --app-accent: #4f5560;
+  --badge-accent: #9ba4b3;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 1.5rem;
@@ -480,6 +499,20 @@ textarea:focus,
 .business-title {
   margin-bottom: 0.55rem;
   font-size: 2rem;
+  line-height: 1.12;
+}
+
+.business-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 0.55rem;
+  padding-block: 1px;
+}
+
+.business-title-row .business-title {
+  margin: 0;
 }
 
 .business-copy {
