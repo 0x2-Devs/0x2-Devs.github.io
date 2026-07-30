@@ -37,7 +37,7 @@
       <div class="content-wrap">
         <span class="section-kicker">Legal</span>
         <h1 class="policy-title">Privacy Policy</h1>
-        <p class="policy-meta">Last updated: March 2026 - 0x2 Devs, Adelaide, South Australia</p>
+        <p class="policy-meta">Last updated: July 2026 - 0x2 Devs, Adelaide, South Australia</p>
         <p class="policy-intro">
           We are 0x2 Devs, two independent software developers based in Adelaide, South Australia.
           This policy covers all applications we publish, including <strong>Matchling</strong>, <strong>Orbit</strong>,
@@ -53,9 +53,19 @@
             <li><strong>Email address</strong> - used to identify your account and to communicate with you.</li>
             <li><strong>Phone number</strong> - only if you choose to provide it, for example for notifications or account recovery.</li>
             <li><strong>App content</strong> - data you create within the app, such as tasks, preferences, or activity, in order to provide the service.</li>
-            <li><strong>Device token</strong> - for delivering push notifications you have opted into. No other device identifiers are stored.</li>
+            <li><strong>Device token</strong> - for delivering push notifications you have opted into.</li>
+            <li>
+              <strong>Anonymous app activity identifier</strong> - each app may generate a random identifier for that
+              installation. We store it on our server only as an app-scoped, one-way hash to estimate app opens and
+              understand the journey from seeing an upgrade option to completing or restoring a purchase. It is not an
+              advertising identifier and is not used to identify you across apps.
+            </li>
             <li><strong>Subscription status</strong> - purchase and subscription records managed through Apple App Store or Google Play. We do not store payment card details.</li>
           </ul>
+          <p>
+            Upgrade journey measurements do not include user-entered content, names, task details, baby or family
+            information, or photos.
+          </p>
         </section>
 
         <section class="policy-section">
@@ -63,6 +73,7 @@
           <ul>
             <li>To create and manage your account.</li>
             <li>To provide and maintain the features of our apps.</li>
+            <li>To measure app usage and improve how people discover and complete our upgrade and purchase flows.</li>
             <li>To send push notifications and reminders you have opted into.</li>
             <li>To respond to your support requests.</li>
             <li>To send you updates and promotional material about our own apps. You may opt out at any time by contacting us.</li>
@@ -76,7 +87,7 @@
           <p>We do not sell, rent, or trade your personal information to any third party, ever.</p>
           <p>We may share data only in the following limited circumstances:</p>
           <ul>
-            <li><strong>Service providers</strong> - trusted infrastructure partners, such as Microsoft Azure for hosting, Apple and Google for push notifications and payments, who process data solely on our behalf under strict terms.</li>
+            <li><strong>Service providers</strong> - trusted infrastructure partners, such as Microsoft Azure for hosting and Apple and Google for push notifications and payments, who process data solely on our behalf under strict terms.</li>
             <li><strong>Legal requirements</strong> - if required by law or in response to valid legal process.</li>
             <li><strong>Business transfers</strong> - in the event of a merger or acquisition, your data would transfer to the successor subject to the same privacy commitments.</li>
           </ul>
@@ -88,6 +99,11 @@
             We retain your data for as long as your account is active. When you delete your account,
             your personal data is removed from our systems. Billing and subscription records may be
             retained separately for accounting and legal compliance purposes.
+          </p>
+          <p>
+            Raw upgrade journey events become eligible for deletion after 90 days and are removed by the next
+            successful scheduled cleanup. Anonymous app-open measurements and aggregate counts may be retained for
+            longer so we can understand app adoption over time.
           </p>
         </section>
 
