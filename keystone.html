@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Keystone is an opportunity pipeline management and forecasting tool that gives your whole organisation live visibility of deals, revenue, and agent commissions." />
+  <title>Keystone - Opportunity pipeline &amp; forecasting | 0x2 Devs</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23101A18'/><text x='5' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%2363A088'>%3E_</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;550;650;700;800&family=Lora:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="assets/site.css?v=20260619-centered-hero" />
+  <script src="assets/site.js" defer></script>
+  <style>
+    .ks-hero-icon {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 1rem;
+      border-radius: var(--radius);
+      box-shadow: 0 14px 30px var(--shadow);
+    }
+
+    .hero-lede {
+      max-width: 740px;
+    }
+
+    .ks-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.3rem;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      padding: 1.15rem;
+    }
+
+    .feature-card h3 {
+      margin: 0.15rem 0 0;
+      font-size: 1.16rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    /* Theme-swapped product screenshot */
+    .shot-frame {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 18px 38px var(--shadow);
+      overflow: hidden;
+    }
+
+    .shot-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .shot-img--light {
+      display: none;
+    }
+
+    [data-theme="light"] .shot-img--dark {
+      display: none;
+    }
+
+    [data-theme="light"] .shot-img--light {
+      display: block;
+    }
+
+    /* Alternating copy / media rows */
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .split + .split {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .split-copy .section-heading {
+      font-size: 1.95rem;
+    }
+
+    .split-copy .section-copy {
+      margin-bottom: 0;
+    }
+
+    .split-media {
+      display: flex;
+      justify-content: center;
+    }
+
+    .split-reverse .split-copy {
+      order: 2;
+    }
+
+    .split-reverse .split-media {
+      order: 1;
+    }
+
+    /* Phone mock, cropped to roughly half height so it reads as a screenshot that continues below */
+    .phone-crop {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-height: 360px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+    }
+
+    .phone {
+      width: 100%;
+      max-width: 380px;
+      border: 1px solid var(--border-strong);
+      border-bottom: none;
+      border-radius: 30px 30px 0 0;
+      background: var(--bg-soft);
+      padding: 14px 14px 0;
+    }
+
+    .phone-screen {
+      border: 1px solid var(--border);
+      border-bottom: none;
+      border-radius: 20px 20px 0 0;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .phone-statusbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0.9rem 0.35rem;
+      color: var(--text-subtle);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .phone-head {
+      padding: 0.2rem 0.9rem 0.7rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .phone-head h4 {
+      margin: 0 0 0.15rem;
+      font-family: Lora, Georgia, serif;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .phone-head span {
+      color: var(--text-subtle);
+      font-size: 0.78rem;
+    }
+
+    .deal-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.5rem 0.75rem;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      border-left: 3px solid var(--rail, var(--border-strong));
+      padding: 0.7rem 0.85rem;
+    }
+
+    .deal-address {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .deal-action {
+      grid-column: 1 / 2;
+      color: var(--text-subtle);
+      font-size: 0.76rem;
+    }
+
+    .deal-price {
+      grid-row: 1 / 3;
+      grid-column: 2 / 3;
+      text-align: right;
+      align-self: center;
+    }
+
+    .deal-price small {
+      display: block;
+      color: var(--text-subtle);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .deal-price strong {
+      color: var(--text);
+      font-size: 0.86rem;
+    }
+
+    .deal-pills {
+      grid-column: 1 / 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .deal-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.66rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .roadmap-card {
+      display: flex;
+      gap: 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      padding: 1.15rem;
+    }
+
+    .roadmap-card i {
+      margin-top: 0.15rem;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .roadmap-card h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.1rem;
+    }
+
+    .roadmap-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .roadmap-note {
+      margin: 1.4rem 0 0;
+      color: var(--text-subtle);
+      font-size: 0.92rem;
+    }
+
+    .contact-section {
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 920px) {
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split,
+      .split-reverse {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+      }
+
+      .split-reverse .split-copy,
+      .split-reverse .split-media {
+        order: 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Keystone navigation">
+        <a href="/" class="brand-link">
+          <span class="brand-mark">0x2</span>
+          <span class="brand-text">0x2 Devs</span>
+        </a>
+        <div class="nav-links">
+          <a href="/#apps">Apps</a>
+          <a href="/#business">Business</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="nav-back" href="/"><i class="bi bi-arrow-left"></i> Back home</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme" title="Toggle theme">
+          <i class="bi bi-sun" data-theme-icon></i>
+        </button>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <img class="ks-hero-icon" src="assets/apps/keystone.png?v=slate-arch" alt="Keystone app icon" />
+            <p class="hero-kicker">Opportunity pipeline &amp; forecasting</p>
+            <h1 id="hero-heading">The whole pipeline, live and shared.</h1>
+            <p class="hero-lede">
+              Keystone is one live workspace for your opportunity pipeline, revenue forecasting, and agent
+              commissions - visible across the organisation instead of locked in one person's spreadsheet,
+              paired with a companion app for the field.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact"><i class="bi bi-envelope"></i> Contact us</a>
+              <a class="btn btn-secondary" href="#roadmap"><i class="bi bi-signpost-split"></i> Where it's heading</a>
+            </div>
+            <div class="ks-badges">
+              <span class="availability-badge"><i class="bi bi-hourglass-split"></i> Early access</span>
+              <span class="chip">B2B</span>
+              <span class="chip">Pipeline &amp; forecasting</span>
+              <span class="chip">Microsoft 365 SSO</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section product-family" aria-labelledby="features-heading">
+        <div class="section-inner">
+          <div class="section-header">
+            <span class="section-kicker">What it does</span>
+            <h2 class="section-heading" id="features-heading">One source of truth for the whole organisation.</h2>
+            <p class="section-copy">
+              Keystone takes the jobs a team currently does in a shared spreadsheet - tracking opportunities,
+              forecasting revenue, working out commissions - and makes them live, role-aware, and hard to get wrong.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="craft-icon"><i class="bi bi-kanban"></i></span>
+              <h3>Live opportunity pipeline</h3>
+              <p>Every opportunity grouped by stage with colour-coded status, editable inline. One shared view across the organisation, instead of a shared spreadsheet where overlapping edits can overwrite each other's work.</p>
+            </article>
+            <article class="feature-card">
+              <span class="craft-icon"><i class="bi bi-graph-up-arrow"></i></span>
+              <h3>Forecasting &amp; reporting</h3>
+              <p>KPIs, monthly revenue, revenue by category, and a probability-weighted pipeline forecast for the months ahead - visible to everyone who needs it.</p>
+            </article>
+            <article class="feature-card">
+              <span class="craft-icon"><i class="bi bi-cash-stack"></i></span>
+              <h3>End-of-year register</h3>
+              <p>Settled deals with a full fee waterfall and agent splits, column totals, and CSV export. The fee columns are configurable per organisation.</p>
+            </article>
+            <article class="feature-card">
+              <span class="craft-icon"><i class="bi bi-percent"></i></span>
+              <h3>Per-agent commissions</h3>
+              <p>The threshold formula shown in full, attributed revenue tracked against it, and a clear payment lifecycle from awaiting settlement to paid.</p>
+            </article>
+            <article class="feature-card">
+              <span class="craft-icon"><i class="bi bi-shield-lock"></i></span>
+              <h3>Microsoft 365 sign-in</h3>
+              <p>Staff sign in with their existing Microsoft 365 account - no new passwords. Access is integrated with your tenant, kept secure, and every change is auditable.</p>
+            </article>
+            <article class="feature-card">
+              <span class="craft-icon"><i class="bi bi-phone"></i></span>
+              <h3>Companion app</h3>
+              <p>Agents update an opportunity's status or add a note the moment they leave a meeting, and check their commission progress, all from their phone.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section craft-section" aria-label="Keystone on the web and on mobile">
+        <div class="section-inner">
+          <div class="split">
+            <div class="split-copy">
+              <span class="section-kicker">On the web</span>
+              <h2 class="section-heading">The full workspace, in the browser.</h2>
+              <p class="section-copy">
+                Keystone runs day-to-day operations, finance, and reporting from one live dataset. Agents and operations
+                staff work the pipeline, finance tracks revenue and commissions, and partners get the
+                organisation-wide picture - each role sees what is relevant to them.
+              </p>
+            </div>
+            <div class="split-media">
+              <div class="shot-frame">
+                <img class="shot-img shot-img--dark" src="assets/screenshots/dark_mode_dashboard_square.png" alt="Keystone dashboard showing deals by category and pipeline by stage" loading="lazy" />
+                <img class="shot-img shot-img--light" src="assets/screenshots/light_mode_dashboard_square.png" alt="Keystone dashboard showing deals by category and pipeline by stage" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="split split-reverse">
+            <div class="split-copy">
+              <span class="section-kicker">On mobile</span>
+              <h2 class="section-heading">Update it the moment you leave the meeting.</h2>
+              <p class="section-copy">
+                Agents update a status, add a note, or check a client's contact details straight from the
+                field - the moment they leave a meeting, not once they're back at a desk. Commission progress
+                is a glance away too.
+              </p>
+            </div>
+
+            <div class="split-media">
+              <div class="phone-crop" aria-hidden="true">
+                <div class="phone">
+                  <div class="phone-screen">
+                    <div class="phone-statusbar">
+                      <span>9:41</span>
+                      <span><i class="bi bi-reception-4"></i> <i class="bi bi-wifi"></i> <i class="bi bi-battery-full"></i></span>
+                    </div>
+                    <div class="phone-head">
+                      <h4>My Opportunities</h4>
+                      <span>Deals where you are the lead or an assigned agent</span>
+                    </div>
+
+                    <div class="deal-row" style="--rail:#1A6BB5;">
+                      <span class="deal-address">154 Currie St, Adelaide</span>
+                      <span class="deal-action">Buyer finance due Friday</span>
+                      <span class="deal-pills">
+                        <span class="deal-pill" style="color:#1A6BB5;border-color:#1A6BB5;">Unconditional</span>
+                        <span class="deal-pill" style="color:#1A6BB5;border-color:#1A6BB5;">Investment</span>
+                      </span>
+                      <span class="deal-price"><small>Pricing</small><strong>$4.2M</strong></span>
+                    </div>
+
+                    <div class="deal-row" style="--rail:#8B5CF6;">
+                      <span class="deal-address">88 Grenfell St, Adelaide</span>
+                      <span class="deal-action">Present offers to vendor</span>
+                      <span class="deal-pills">
+                        <span class="deal-pill" style="color:#8B5CF6;border-color:#8B5CF6;">Offers pending</span>
+                        <span class="deal-pill" style="color:#E84000;border-color:#E84000;">Sales</span>
+                      </span>
+                      <span class="deal-price"><small>Pricing</small><strong>$6.8M</strong></span>
+                    </div>
+
+                    <div class="deal-row" style="--rail:#21A0B8;">
+                      <span class="deal-address">Level 3, 91 King William St</span>
+                      <span class="deal-action">DD expires 14 Mar</span>
+                      <span class="deal-pills">
+                        <span class="deal-pill" style="color:#21A0B8;border-color:#21A0B8;">Due diligence</span>
+                        <span class="deal-pill" style="color:#2D8A4E;border-color:#2D8A4E;">Leasing</span>
+                      </span>
+                      <span class="deal-price"><small>Pricing</small><strong>$285/m&sup2;</strong></span>
+                    </div>
+
+                    <div class="deal-row" style="--rail:#D97706;">
+                      <span class="deal-address">12 Pirie St, Adelaide</span>
+                      <span class="deal-action">Inspection Tuesday 10am</span>
+                      <span class="deal-pills">
+                        <span class="deal-pill" style="color:#D97706;border-color:#D97706;">Live listing</span>
+                        <span class="deal-pill" style="color:#2D8A4E;border-color:#2D8A4E;">Leasing</span>
+                      </span>
+                      <span class="deal-price"><small>Pricing</small><strong>$320/m&sup2;</strong></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section product-family" id="roadmap" aria-labelledby="roadmap-heading">
+        <div class="section-inner">
+          <div class="section-header">
+            <span class="section-kicker">Roadmap</span>
+            <h2 class="section-heading" id="roadmap-heading">Where Keystone is heading.</h2>
+            <p class="section-copy">
+              Keystone is early - in active development with our first customer. These are the directions
+              we're building toward next.
+            </p>
+          </div>
+
+          <div class="roadmap-grid">
+            <article class="roadmap-card">
+              <i class="bi bi-sliders"></i>
+              <div>
+                <h3>Reporting you can shape</h3>
+                <p>A dashboard of widgets each team arranges and saves for itself, plus deeper financial reporting.</p>
+              </div>
+            </article>
+            <article class="roadmap-card">
+              <i class="bi bi-folder2-open"></i>
+              <div>
+                <h3>Documents with the deal</h3>
+                <p>Agreements, contracts, and photos attached to each opportunity in a connected document repository.</p>
+              </div>
+            </article>
+            <article class="roadmap-card">
+              <i class="bi bi-diagram-3"></i>
+              <div>
+                <h3>Connected to your tools</h3>
+                <p>Links to REX, so a property in Keystone carries straight through to its listing and brochure.</p>
+              </div>
+            </article>
+            <article class="roadmap-card">
+              <i class="bi bi-briefcase"></i>
+              <div>
+                <h3>Manage your own licensing</h3>
+                <p>Adjust your seat count and billing directly from the People &amp; Access page, instead of going through us.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="roadmap-note">Priorities shift as we learn from the teams actually using Keystone.</p>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-heading">
+        <div class="section-inner contact-grid">
+          <div>
+            <span class="section-kicker">Contact</span>
+            <h2 class="section-heading" id="contact-heading">Talk to us about Keystone.</h2>
+            <p class="section-copy">
+              If your team runs an opportunity pipeline and this sounds like a problem you have, we'd like
+              to hear from you. Tell us how you track deals and commissions today and we'll be in touch.
+            </p>
+            <div class="contact-list">
+              <div class="contact-detail">
+                <i class="bi bi-envelope-fill"></i>
+                <div>
+                  <div class="detail-label">Email</div>
+                  <a class="detail-value" href="mailto:info@0x2-devs.com?subject=Keystone%20enquiry">info@0x2-devs.com</a>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="bi bi-geo-alt-fill"></i>
+                <div>
+                  <div class="detail-label">Based in</div>
+                  <div class="detail-value">Adelaide, South Australia</div>
+                </div>
+              </div>
+              <div class="contact-detail">
+                <i class="bi bi-clock-fill"></i>
+                <div>
+                  <div class="detail-label">Response time</div>
+                  <div class="detail-value">We aim to reply within 1-2 business days</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-panel" id="form-wrapper">
+            <form class="contact-form" id="contact-form">
+              <div class="field">
+                <label for="from_name">Name</label>
+                <input type="text" id="from_name" name="from_name" class="form-control" placeholder="Your name" required />
+              </div>
+              <div class="field">
+                <label for="reply_to">Email address</label>
+                <input type="email" id="reply_to" name="reply_to" class="form-control" placeholder="you@example.com" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="How does your team track deals and commissions today?" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" id="submit-btn">
+                <i class="bi bi-send"></i> Send message
+              </button>
+              <div class="form-status" id="form-error"></div>
+            </form>
+
+            <div class="form-success" id="form-success">
+              <div class="success-icon"><i class="bi bi-check-circle-fill"></i></div>
+              <h3>Message sent</h3>
+              <p>Thanks for reaching out. We will get back to you within 1-2 business days.</p>
+              <button class="btn btn-secondary" type="button" onclick="resetForm()">
+                <i class="bi bi-arrow-left"></i> Send another message
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">0x2 Devs</div>
+          <div>Adelaide, South Australia - building apps worth using.</div>
+        </div>
+        <div class="footer-links">
+          <span>&copy; <span data-current-year></span> 0x2 Devs</span>
+          <a href="/privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var btn = document.getElementById("submit-btn");
+      var error = document.getElementById("form-error");
+
+      btn.disabled = true;
+      btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Sending...';
+      error.style.display = "none";
+
+      var data = {
+        name: document.getElementById("from_name").value.trim(),
+        email: document.getElementById("reply_to").value.trim(),
+        message: document.getElementById("message").value.trim(),
+        _subject: "Keystone enquiry - 0x2 Devs website",
+      };
+
+      fetch("https://formspree.io/f/mqeyqrpd", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+        .then(function (response) {
+          if (response.ok) {
+            document.getElementById("contact-form").style.display = "none";
+            document.getElementById("form-success").style.display = "block";
+          } else {
+            return response.json().then(function (body) { throw body; });
+          }
+        })
+        .catch(function (err) {
+          console.error("Formspree error:", err);
+          error.textContent = "Something went wrong. Please try emailing us directly at info@0x2-devs.com";
+          error.style.display = "block";
+          btn.disabled = false;
+          btn.innerHTML = '<i class="bi bi-send"></i> Send message';
+        });
+    });
+
+    function resetForm() {
+      var btn = document.getElementById("submit-btn");
+      btn.disabled = false;
+      btn.innerHTML = '<i class="bi bi-send"></i> Send message';
+      document.getElementById("contact-form").reset();
+      document.getElementById("contact-form").style.display = "grid";
+      document.getElementById("form-success").style.display = "none";
+    }
+  </script>
+</body>
+</html>
