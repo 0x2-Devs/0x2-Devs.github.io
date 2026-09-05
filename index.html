@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;550;650;700;800&family=Lora:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="assets/site.css?v=20260619-centered-hero" />
+  <link rel="stylesheet" href="assets/site.css?v=20260905-eucalyptus" />
   <script src="assets/site.js" defer></script>
 </head>
 <body>
@@ -33,14 +33,14 @@
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="hero-heading">
+      <section class="hero home-hero" aria-labelledby="hero-heading">
         <div class="hero-inner">
           <div class="hero-copy">
             <p class="hero-kicker">Adelaide software studio</p>
-            <h1 id="hero-heading">Small, sharp apps for real life and real teams.</h1>
+            <h1 id="hero-heading">Small, sharp apps.<br /><span>For life and work.</span></h1>
             <p class="hero-lede">
-              We are two experienced developers building thoughtful consumer apps and focused business tools
-              without the bloat that makes software harder than the work itself.
+              We’re two developers in Adelaide making everyday apps and focused tools for teams.
+              Thoughtful software that makes the day a little easier.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#apps"><i class="bi bi-grid-3x3-gap"></i> Explore apps</a>
@@ -64,7 +64,7 @@
         <div class="section-inner">
           <div class="section-header">
             <span class="section-kicker">For everyday life</span>
-            <h2 class="section-heading" id="consumer-heading">Consumer apps with fewer rough edges.</h2>
+            <h2 class="section-heading" id="consumer-heading">Apps for the everyday.</h2>
             <p class="section-copy">
               Each app is built around a small, useful job: decide together, keep track, clean up, solve a puzzle,
               or make shared life run a little smoother.
@@ -75,7 +75,7 @@
             <article class="app-card" style="--app-accent: #d86f84;">
               <div class="app-card-top">
                 <div class="app-icon"><img src="assets/apps/matchling.png" alt="Matchling app icon" loading="lazy" /></div>
-                <span class="app-status">B2C</span>
+                <span class="app-status">Baby names</span>
               </div>
               <div>
                 <h3 class="app-title">Matchling</h3>
@@ -90,7 +90,7 @@
             <article class="app-card" style="--app-accent: #5c8ee8;">
               <div class="app-card-top">
                 <div class="app-icon"><img src="assets/apps/orbit.png" alt="Orbit app icon" loading="lazy" /></div>
-                <span class="app-status">B2C</span>
+                <span class="app-status">Shared tasks</span>
               </div>
               <div>
                 <h3 class="app-title">Orbit</h3>
@@ -105,7 +105,7 @@
             <article class="app-card" style="--app-accent: #21a0b8;">
               <div class="app-card-top">
                 <div class="app-icon"><img src="assets/apps/snapling.png" alt="Snapling app icon" loading="lazy" /></div>
-                <span class="app-status">B2C</span>
+                <span class="app-status">Photo clean-up</span>
               </div>
               <div>
                 <h3 class="app-title">Snapling</h3>
@@ -120,7 +120,7 @@
             <article class="app-card" style="--app-accent: #67a78b;">
               <div class="app-card-top">
                 <div class="app-icon"><img src="assets/apps/hatchling.png" alt="Hatchling app icon" loading="lazy" /></div>
-                <span class="app-status">B2C</span>
+                <span class="app-status">Baby tracking</span>
               </div>
               <div>
                 <h3 class="app-title">Hatchling</h3>
@@ -135,7 +135,7 @@
             <article class="app-card" style="--app-accent: #f18a5f;">
               <div class="app-card-top">
                 <div class="app-icon"><img src="assets/apps/summit.png" alt="Summit app icon" loading="lazy" /></div>
-                <span class="app-status">B2C</span>
+                <span class="app-status">Family chores</span>
               </div>
               <div>
                 <h3 class="app-title">Summit</h3>
@@ -147,18 +147,18 @@
               </div>
             </article>
 
-            <article class="app-card" style="--app-accent: #9fa3d2; --badge-accent: #8288c5;">
+            <article class="app-card app-card-available" style="--app-accent: #9fa3d2;">
               <div class="app-card-top">
                 <div class="app-icon"><img src="assets/apps/sudokling.png" alt="Sudokling app icon" loading="lazy" /></div>
-                <span class="availability-badge"><i class="bi bi-hourglass-split"></i> Coming soon</span>
+                <span class="availability-badge availability-badge-live"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Available now</span>
               </div>
               <div>
                 <h3 class="app-title">Sudokling</h3>
-                <p class="app-description">Clean Sudoku with curated puzzles, daily races, streaks, and optional sync.</p>
+                <p class="app-description">Race the daily Sudoku, challenge friends, or settle into a puzzle at your own pace.</p>
               </div>
               <div class="chip-list">
-                <span class="chip"><i class="bi bi-apple"></i> iOS</span>
-                <span class="chip"><i class="bi bi-android2"></i> Android</span>
+                <a class="chip chip-link" href="https://apps.apple.com/au/app/sudokling/id6778303016" target="_blank" rel="noopener noreferrer" aria-label="Open Sudokling on the App Store"><i class="bi bi-apple" aria-hidden="true"></i> App Store</a>
+                <a class="chip chip-link" href="https://play.google.com/store/apps/details?id=com.ox2devs.sudokling" target="_blank" rel="noopener noreferrer" aria-label="Open Sudokling on Google Play"><i class="bi bi-android2" aria-hidden="true"></i> Google Play</a>
               </div>
             </article>
           </div>
