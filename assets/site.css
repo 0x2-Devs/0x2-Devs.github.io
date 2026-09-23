@@ -205,6 +205,8 @@ p {
 .form-control:focus,
 textarea:focus,
 .nav-links a:focus-visible,
+.category-link:focus-visible,
+.chip-link:focus-visible,
 .brand-link:focus-visible,
 .nav-back:focus-visible {
   outline: none;
@@ -379,6 +381,53 @@ textarea:focus,
   border-radius: 7px;
 }
 
+.category-nav {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-soft);
+  padding: 1rem 0;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.category-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem 0.7rem;
+  align-items: end;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  background: var(--card);
+  color: var(--text);
+  padding: 1rem 1.1rem;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.category-link:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.category-number {
+  grid-column: 1 / -1;
+  color: var(--accent);
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+}
+
+.category-link strong {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.category-link i {
+  color: var(--accent);
+}
+
 .product-family {
   background: var(--bg);
   padding-top: 3rem;
@@ -472,6 +521,97 @@ textarea:focus,
 .app-description {
   margin-bottom: 0;
   color: var(--text-muted);
+}
+
+.games-section {
+  border-block: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.game-card {
+  --app-accent: var(--accent);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border: 1px solid color-mix(in srgb, var(--app-accent) 40%, var(--border));
+  border-radius: var(--radius-panel);
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--app-accent) 17%, transparent), transparent 55%),
+    var(--card);
+  padding: clamp(1.35rem, 3vw, 2rem);
+}
+
+.game-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.game-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  box-shadow: var(--icon-shadow);
+}
+
+.game-eyebrow {
+  margin-bottom: 0.35rem;
+  color: var(--text-subtle);
+  font-family: "Share Tech Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+}
+
+.game-title {
+  margin-bottom: 0.7rem;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+}
+
+.game-description {
+  max-width: 52ch;
+  margin-bottom: 0;
+}
+
+.game-footer {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: auto;
+}
+
+.game-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.83rem;
+  font-weight: 650;
+}
+
+.game-highlights span + span::before {
+  content: "·";
+  color: var(--app-accent);
+  margin-right: 0.75rem;
+}
+
+.game-availability {
+  margin-bottom: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+[data-theme="light"] .game-card-scrambling .availability-badge {
+  --badge-accent: #9c5124;
 }
 
 .chip-list {
@@ -878,6 +1018,10 @@ textarea:focus {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .category-grid {
+    gap: 0.5rem;
+  }
+
   .business-panel,
   .craft-grid,
   .contact-grid {
@@ -903,6 +1047,8 @@ textarea:focus {
   }
 
   .nav-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     order: 2;
     grid-column: 1 / -1;
     margin-left: 0;
@@ -928,7 +1074,7 @@ textarea:focus {
   }
 
   html {
-    scroll-padding-top: 9rem;
+    scroll-padding-top: 11rem;
   }
 
   .brand-text {
@@ -967,6 +1113,11 @@ textarea:focus {
   }
 
   .app-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-grid,
+  .games-grid {
     grid-template-columns: 1fr;
   }
 

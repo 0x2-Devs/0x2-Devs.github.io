@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="0x2 Devs builds polished consumer apps and focused business tools from Adelaide, Australia." />
+  <meta name="description" content="Explore productivity apps, games, and business software made with care by 0x2 Devs in Adelaide, Australia." />
   <title>0x2 Devs</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23101A18'/><text x='5' y='23' font-family='monospace' font-size='18' font-weight='bold' fill='%2363A088'>%3E_</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;550;650;700;800&family=Lora:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link rel="stylesheet" href="assets/site.css?v=20260905-eucalyptus" />
+  <link rel="stylesheet" href="assets/site.css?v=20260923-categories" />
   <script src="assets/site.js" defer></script>
 </head>
 <body>
@@ -22,7 +22,8 @@
           <span class="brand-text">0x2 Devs</span>
         </a>
         <div class="nav-links">
-          <a href="#apps">Apps</a>
+          <a href="#productivity">Productivity</a>
+          <a href="#games">Games</a>
           <a href="#business">Business</a>
           <a href="#contact">Contact</a>
         </div>
@@ -37,14 +38,14 @@
         <div class="hero-inner">
           <div class="hero-copy">
             <p class="hero-kicker">Adelaide software studio</p>
-            <h1 id="hero-heading">Small, sharp apps.<br /><span>For life and work.</span></h1>
+            <h1 id="hero-heading">Small, sharp apps.<br /><span>For life, play and work.</span></h1>
             <p class="hero-lede">
-              We’re two developers in Adelaide making everyday apps and focused tools for teams.
-              Thoughtful software that makes the day a little easier.
+              We’re two developers in Adelaide making useful apps, playful games, and focused tools for teams.
+              Every product gets the same attention to the small details.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#apps"><i class="bi bi-grid-3x3-gap"></i> Explore apps</a>
-              <a class="btn btn-secondary" href="#business"><i class="bi bi-building-check"></i> Business tools</a>
+              <a class="btn btn-primary" href="#productivity"><i class="bi bi-grid-3x3-gap"></i> Explore our work</a>
+              <a class="btn btn-secondary" href="#games"><i class="bi bi-controller"></i> Discover the games</a>
             </div>
           </div>
 
@@ -55,19 +56,27 @@
             <div class="hero-icon-tile"><img src="assets/apps/hatchling.png" alt="" /></div>
             <div class="hero-icon-tile"><img src="assets/apps/summit.png" alt="" /></div>
             <div class="hero-icon-tile"><img src="assets/apps/sudokling.png" alt="" /></div>
+            <div class="hero-icon-tile"><img src="assets/apps/scrambling.png" alt="" /></div>
             <div class="hero-icon-tile"><img src="assets/apps/keystone.png?v=slate-arch" alt="" /></div>
           </div>
         </div>
       </section>
 
-      <section class="section product-family" id="apps" aria-labelledby="consumer-heading">
+      <nav class="category-nav" id="apps" aria-label="Explore by category">
+        <div class="section-inner category-grid">
+          <a class="category-link" href="#productivity"><span class="category-number">01 / Productivity</span><strong>Make the everyday easier</strong><i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+          <a class="category-link" href="#games"><span class="category-number">02 / Games</span><strong>Play something good</strong><i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+          <a class="category-link" href="#business"><span class="category-number">03 / Business</span><strong>Work with more clarity</strong><i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+        </div>
+      </nav>
+
+      <section class="section product-family" id="productivity" aria-labelledby="productivity-heading">
         <div class="section-inner">
           <div class="section-header">
-            <span class="section-kicker">For everyday life</span>
-            <h2 class="section-heading" id="consumer-heading">Apps for the everyday.</h2>
+            <span class="section-kicker">01 / Productivity</span>
+            <h2 class="section-heading" id="productivity-heading">A little more room in your day.</h2>
             <p class="section-copy">
-              Each app is built around a small, useful job: decide together, keep track, clean up, solve a puzzle,
-              or make shared life run a little smoother.
+              From shared plans to family routines and photo clean-up, these apps make everyday jobs feel lighter.
             </p>
           </div>
 
@@ -146,19 +155,51 @@
                 <a class="chip chip-link" href="https://play.google.com/store/apps/details?id=com.ox2devs.choremap" target="_blank" rel="noopener noreferrer" aria-label="Open Summit on Google Play"><i class="bi bi-android2"></i> Google Play</a>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
 
-            <article class="app-card app-card-available" style="--app-accent: #9fa3d2;">
-              <div class="app-card-top">
-                <div class="app-icon"><img src="assets/apps/sudokling.png" alt="Sudokling app icon" loading="lazy" /></div>
+      <section class="section games-section" id="games" aria-labelledby="games-heading">
+        <div class="section-inner">
+          <div class="section-header">
+            <span class="section-kicker">02 / Games</span>
+            <h2 class="section-heading" id="games-heading">A good reason to take a break.</h2>
+            <p class="section-copy">Quick daily competition, thoughtful solo play, and the satisfying pull of one more round.</p>
+          </div>
+
+          <div class="games-grid">
+            <article class="game-card" style="--app-accent: #9fa3d2;">
+              <div class="game-card-head">
+                <img class="game-icon" src="assets/apps/sudokling.png" alt="Sudokling app icon" loading="lazy" />
                 <span class="availability-badge availability-badge-live"><i class="bi bi-check-circle-fill" aria-hidden="true"></i> Available now</span>
               </div>
               <div>
-                <h3 class="app-title">Sudokling</h3>
-                <p class="app-description">Race the daily Sudoku, challenge friends, or settle into a puzzle at your own pace.</p>
+                <p class="game-eyebrow">Sudoku / Daily competition</p>
+                <h3 class="game-title">Sudokling</h3>
+                <p class="game-description">A Sudoku puzzle can be a quiet moment or a race. Play the daily board, challenge friends, build your rating, or practise at your own pace.</p>
               </div>
-              <div class="chip-list">
-                <a class="chip chip-link" href="https://apps.apple.com/au/app/sudokling/id6778303016" target="_blank" rel="noopener noreferrer" aria-label="Open Sudokling on the App Store"><i class="bi bi-apple" aria-hidden="true"></i> App Store</a>
-                <a class="chip chip-link" href="https://play.google.com/store/apps/details?id=com.ox2devs.sudokling" target="_blank" rel="noopener noreferrer" aria-label="Open Sudokling on Google Play"><i class="bi bi-android2" aria-hidden="true"></i> Google Play</a>
+              <div class="game-footer">
+                <div class="game-highlights"><span>Daily races</span><span>Private challenges</span><span>Practice</span></div>
+                <div class="chip-list">
+                  <a class="chip chip-link" href="https://apps.apple.com/au/app/sudokling/id6778303016" target="_blank" rel="noopener noreferrer" aria-label="Open Sudokling on the App Store"><i class="bi bi-apple" aria-hidden="true"></i> App Store</a>
+                  <a class="chip chip-link" href="https://play.google.com/store/apps/details?id=com.ox2devs.sudokling" target="_blank" rel="noopener noreferrer" aria-label="Open Sudokling on Google Play"><i class="bi bi-android2" aria-hidden="true"></i> Google Play</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="game-card game-card-scrambling" style="--app-accent: #e7ae6d;">
+              <div class="game-card-head">
+                <img class="game-icon" src="assets/apps/scrambling.png" alt="Scrambling app icon" loading="lazy" />
+                <span class="availability-badge">Coming soon</span>
+              </div>
+              <div>
+                <p class="game-eyebrow">Word play / Tile strategy</p>
+                <h3 class="game-title">Scrambling</h3>
+                <p class="game-description">Find words in any order on a shifting board. Claimed tiles disappear, letters fall into place, and fresh ones arrive for your next move.</p>
+              </div>
+              <div class="game-footer">
+                <div class="game-highlights"><span>Daily challenge</span><span>Campaign</span><span>Private matches</span></div>
+                <p class="game-availability">Coming to iOS and Android.</p>
               </div>
             </article>
           </div>
@@ -168,7 +209,7 @@
       <section class="section product-family" id="business" aria-labelledby="business-heading">
         <div class="section-inner">
           <div class="section-header">
-            <span class="section-kicker">For teams</span>
+            <span class="section-kicker">03 / Business</span>
             <h2 class="section-heading" id="business-heading">Business software that replaces messy workarounds.</h2>
             <p class="section-copy">
               Keystone is our current B2B product: a focused platform for agencies that need live operational data,
