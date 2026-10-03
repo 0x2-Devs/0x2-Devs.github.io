@@ -29,6 +29,8 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 body { margin: 0; background: var(--page); color: var(--ink); font-family: Inter, system-ui, -apple-system, sans-serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
@@ -92,6 +94,23 @@ p { color: var(--muted); }
 .business-feature .product-lockup { margin-bottom: 26px; }
 .business-feature .text-link { color: #f4f6f6; }
 .business-preview { align-self: center; min-width: 0; position: relative; }
+.home-business-preview { padding-right: 55px; padding-bottom: 22px; }
+.home-business-preview > .phone { position: absolute; width: 168px; right: -18px; bottom: -18px; }
+.carousel-slides { display: grid; }
+.carousel-slides > .feature-card { grid-area: 1 / 1; }
+.carousel-slides > [aria-hidden='true'] { visibility: hidden; pointer-events: none; }
+.carousel-slides > [aria-hidden='false'] { animation: carousel-reveal .25s ease-out; }
+@keyframes carousel-reveal { from { opacity: 0; } to { opacity: 1; } }
+.carousel-toolbar { display: flex; justify-content: flex-end; align-items: center; gap: 18px; margin-bottom: 15px; font-size: 11px; color: var(--muted); }
+.carousel-toolbar button { border: 0; padding: 6px 0; background: none; color: var(--ink); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+.carousel-controls { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 24px; }
+.carousel-selectors { display: flex; flex-wrap: wrap; gap: 8px; }
+.carousel-selectors button { display: inline-flex; align-items: center; gap: 9px; border: 1px solid transparent; padding: 9px 13px; border-radius: 9px; color: var(--muted); background: transparent; font-size: 12px; }
+.carousel-selectors button[aria-disabled='true'] { border-color: var(--rule); background: var(--paper); color: var(--ink); }
+.carousel-selectors button:hover { color: var(--ink); }
+.carousel-selectors img { width: 25px; height: 25px; border-radius: 6px; }
+.carousel-arrows { display: flex; gap: 9px; }
+.carousel-arrows button { width: 40px; height: 40px; border: 1px solid var(--rule); border-radius: 50%; background: var(--paper); color: var(--ink); font-size: 18px; }
 .browser-frame { border: 6px solid #7190a4; border-radius: 12px; box-shadow: 0 20px 45px #06141f26; overflow: hidden; background: #f5f8fa; width: 100%; color: #273b4c; }
 .business-note { padding-top: 24px; color: var(--muted); font-size: 12px; }
 .business-note a { border-bottom: 1px solid var(--rule); margin-left: 8px; }
@@ -202,6 +221,7 @@ p { color: var(--muted); }
   .business-feature { grid-template-columns: 1fr; gap: 45px; }
   .business-feature h2, .business-feature p { max-width: 520px; }
   .business-preview { max-width: 650px; }
+  .home-business-preview > .phone { width: 190px; right: 0; }
   .studio-strip { gap: 55px; }
   .product-hero { grid-template-columns: 1fr; }
   .product-copy h1 { max-width: 650px; font-size: 62px; }
@@ -254,6 +274,13 @@ p { color: var(--muted); }
   .business-feature { border-radius: 17px; padding: 33px 26px; gap: 37px; }
   .business-feature h2 { font-size: 35px; }
   .business-feature p { font-size: 13px; }
+  .home-business-preview { padding: 0; }
+  .home-business-preview > .phone { position: relative; width: 180px; right: auto; bottom: auto; margin: 26px auto 0; }
+  .carousel-controls { align-items: flex-start; gap: 12px; }
+  .carousel-selectors { gap: 4px; }
+  .carousel-selectors button { padding: 8px; gap: 7px; font-size: 11px; }
+  .carousel-arrows { flex-shrink: 0; gap: 6px; }
+  .carousel-arrows button { width: 34px; height: 34px; }
   .browser-frame { border-width: 4px; border-radius: 8px; }
   .business-note { font-size: 11px; line-height: 1.8; }
   .studio-strip { grid-template-columns: 1fr; gap: 25px; padding-bottom: 58px; }
@@ -306,6 +333,7 @@ p { color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0s !important; }
+  .carousel-slides > [aria-hidden='false'] { animation: none; }
 }
 
 /* Device frames preserve the native capture aspect ratio and pixels. */
