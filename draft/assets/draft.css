@@ -103,11 +103,10 @@ p { color: var(--muted); }
 .carousel-slides > [aria-hidden='false'] { animation: carousel-reveal .25s ease-out; }
 @keyframes carousel-reveal { from { opacity: 0; } to { opacity: 1; } }
 .carousel-toolbar { display: flex; justify-content: flex-end; align-items: center; gap: 18px; margin-bottom: 15px; font-size: 11px; color: var(--muted); }
-.carousel-toolbar button { border: 0; padding: 6px 0; background: none; color: var(--ink); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
 .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 20px; padding-top: 24px; }
 .carousel-selectors { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
 .carousel-selectors button { display: inline-flex; align-items: center; gap: 9px; border: 1px solid transparent; padding: 9px 13px; border-radius: 9px; color: var(--muted); background: transparent; font-size: 12px; }
-.carousel-selectors button[aria-disabled='true'] { border-color: var(--rule); background: var(--paper); color: var(--ink); }
+.carousel-selectors button[aria-current='true'] { border-color: var(--rule); background: var(--paper); color: var(--ink); }
 .carousel-selectors button:hover { color: var(--ink); }
 .carousel-selectors img { width: 25px; height: 25px; border-radius: 6px; }
 .carousel-arrows { position: absolute; inset: 0; pointer-events: none; }

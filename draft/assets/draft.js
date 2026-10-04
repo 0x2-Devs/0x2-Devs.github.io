@@ -43,7 +43,6 @@
   document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
     var slides = Array.from(carousel.querySelectorAll('[data-carousel-slide]'));
     var selectors = Array.from(carousel.querySelectorAll('[data-carousel-select]'));
-    var rotation = carousel.querySelector('[data-carousel-rotation]');
     var count = carousel.querySelector('[data-carousel-count]');
     var status = carousel.querySelector('[data-carousel-status]');
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -54,7 +53,6 @@
     var visible = false;
     var timer = null;
     var selectionRequest = 0;
-    var rotationPointerIntent = null;
 
     function canRotate() {
       return !paused && !hovering && visible && !document.hidden;
@@ -76,10 +74,9 @@
     function updateRotation() {
       window.clearTimeout(timer);
       timer = null;
-      rotation.textContent = paused ? 'Start rotation' : 'Pause rotation';
       if (!canRotate()) return;
       prepareSlide((current + 1) % slides.length);
-      timer = window.setTimeout(function () { showSlide(current + 1, false); }, 8000);
+      timer = window.setTimeout(function () { showSlide(current + 1, false); }, 5000);
     }
 
     function showSlide(index, manual) {
@@ -98,7 +95,7 @@
           slide.inert = inactive;
         });
         selectors.forEach(function (selector, position) {
-          selector.setAttribute('aria-disabled', String(position === current));
+          selector.setAttribute('aria-current', String(position === current));
         });
         count.textContent = (current + 1) + ' / ' + slides.length;
         if (manual) status.textContent = slides[current].getAttribute('aria-label');
@@ -107,25 +104,15 @@
     }
 
     carousel.querySelectorAll('[data-carousel-controls]').forEach(function (control) { control.hidden = false; });
-    rotation.addEventListener('pointerdown', function () { rotationPointerIntent = !paused; });
-    rotation.addEventListener('pointercancel', function () { rotationPointerIntent = null; });
-    rotation.addEventListener('keydown', function () { rotationPointerIntent = null; });
-    rotation.addEventListener('blur', function () { rotationPointerIntent = null; });
-    rotation.addEventListener('click', function () {
-      // Pointer focus also stops rotation; retain the action requested before that focus event.
-      paused = rotationPointerIntent === null ? !paused : rotationPointerIntent;
-      rotationPointerIntent = null;
-      updateRotation();
-    });
     carousel.querySelector('[data-carousel-previous]').addEventListener('click', function () { showSlide(current - 1, true); });
     carousel.querySelector('[data-carousel-next]').addEventListener('click', function () { showSlide(current + 1, true); });
     selectors.forEach(function (selector, index) {
       selector.addEventListener('click', function () {
-        if (selector.getAttribute('aria-disabled') !== 'true') showSlide(index, true);
+        showSlide(index, true);
       });
     });
     carousel.addEventListener('focusin', function () {
-      // Keyboard interaction stops rotation until the user explicitly starts it.
+      // Keyboard interaction keeps the selected product in place.
       paused = true;
       updateRotation();
     });
