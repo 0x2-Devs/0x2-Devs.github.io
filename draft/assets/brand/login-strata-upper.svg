@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" viewBox="600 0 424 384" width="424" height="384" preserveAspectRatio="none"><defs><radialGradient id="slate" cx="52%" cy="53%" r="74%">
+      <stop offset="0" stop-color="#2a3946" />
+      <stop offset="0.64" stop-color="#354958" />
+      <stop offset="1" stop-color="#435767" />
+    </radialGradient>
+<linearGradient id="strata-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#42586A" />
+      <stop offset="1" stop-color="#3B5264" />
+    </linearGradient>
+<linearGradient id="strata-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4D6578" />
+      <stop offset="1" stop-color="#455E72" />
+    </linearGradient>
+<linearGradient id="strata-corner" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#587184" />
+      <stop offset="1" stop-color="#506A7E" />
+    </linearGradient>
+<filter id="strata-lower-shadow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="7" dy="-1" stdDeviation="5" flood-color="#08182B" flood-opacity=".48" />
+    </filter>
+<filter id="strata-upper-shadow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="-1" dy="7" stdDeviation="5" flood-color="#08182B" flood-opacity=".48" />
+    </filter></defs>    <g id="Upper-right-strata" inkscape:label="Upper right strata">
+      <g id="upper-dark" inkscape:label="upper dark">
+        <path d="M 618 -12 C 637 83 672 123 737 151 C 781 171 825 174 864 193 C 905 213 918 230 947 272 C 970 305 995 341 1038 362 L 1038 -12 Z" fill="url(#strata-dark)" filter="url(#strata-upper-shadow)" />
+        <path d="M 618 -12 C 637 83 672 123 737 151 C 781 171 825 174 864 193 C 905 213 918 230 947 272 C 970 305 995 341 1038 362" fill="none" stroke="#CEE3F5" stroke-opacity=".34" stroke-width="2" />
+      </g>
+      <g id="upper-light" inkscape:label="upper light">
+        <path d="M 744 -12 C 773 78 814 100 879 126 C 925 145 944 157 962 189 C 983 226 998 257 1038 282 L 1038 -12 Z" fill="url(#strata-light)" filter="url(#strata-upper-shadow)" />
+        <path d="M 744 -12 C 773 78 814 100 879 126 C 925 145 944 157 962 189 C 983 226 998 257 1038 282" fill="none" stroke="#CEE3F5" stroke-opacity=".34" stroke-width="2" />
+      </g>
+      <g id="upper-corner" inkscape:label="upper corner sheet">
+        <path d="M 832.2 -12 C 852.5 51 881.2 66.4 926.7 84.6 C 958.9 97.9 972.2 106.3 984.8 128.7 C 999.5 154.6 1010 176.3 1038 193.8 L 1038 -12 Z" fill="url(#strata-corner)" filter="url(#strata-upper-shadow)" />
+        <path d="M 832.2 -12 C 852.5 51 881.2 66.4 926.7 84.6 C 958.9 97.9 972.2 106.3 984.8 128.7 C 999.5 154.6 1010 176.3 1038 193.8" fill="none" stroke="#CEE3F5" stroke-opacity=".34" stroke-width="2" />
+      </g>
+    </g>
+</svg>
