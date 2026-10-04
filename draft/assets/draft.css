@@ -96,6 +96,11 @@ p { color: var(--muted); }
 .business-preview { align-self: center; min-width: 0; position: relative; }
 .home-business-preview { padding-right: 55px; padding-bottom: 22px; }
 .home-business-preview > .phone { position: absolute; width: 168px; right: -18px; bottom: -18px; }
+.carousel-store-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.store-badge { display: block; width: fit-content; flex: 0 0 auto; }
+.store-badge img { width: auto; height: 40px; }
+.feature-copy .carousel-store-links + .text-link { margin-top: 24px; }
+.feature-copy .store-availability { font-size: 12px; margin-top: 24px; }
 .carousel-stage { position: relative; }
 .carousel-slides { display: grid; }
 .carousel-slides > .feature-card { grid-area: 1 / 1; }
