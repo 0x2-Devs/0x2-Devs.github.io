@@ -104,9 +104,15 @@ p { color: var(--muted); }
 .carousel-stage { position: relative; }
 .carousel-slides { display: grid; }
 .carousel-slides > .feature-card { grid-area: 1 / 1; }
-.carousel-slides > [aria-hidden='true'] { visibility: hidden; pointer-events: none; }
-.carousel-slides > [aria-hidden='false'] { animation: carousel-reveal .25s ease-out; }
-@keyframes carousel-reveal { from { opacity: 0; } to { opacity: 1; } }
+/* Keep the outgoing card underneath until the incoming card finishes fading. */
+.carousel-slides > [aria-hidden='true'] {
+  opacity: 0; visibility: hidden; pointer-events: none; z-index: 0;
+  transition: opacity 0s linear .65s, visibility 0s linear .65s;
+}
+.carousel-slides > [aria-hidden='false'] {
+  opacity: 1; visibility: visible; z-index: 1;
+  transition: opacity .65s cubic-bezier(.22, .61, .36, 1), visibility 0s;
+}
 .carousel-toolbar { display: flex; justify-content: flex-end; align-items: center; gap: 18px; margin-bottom: 15px; font-size: 11px; color: var(--muted); }
 .carousel-controls { display: flex; align-items: center; justify-content: center; gap: 20px; padding-top: 24px; }
 .carousel-selectors { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
@@ -352,7 +358,7 @@ p { color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0s !important; }
-  .carousel-slides > [aria-hidden='false'] { animation: none; }
+  .carousel-slides > .feature-card { transition: none !important; }
 }
 
 /* Device frames preserve the native capture aspect ratio and pixels. */
